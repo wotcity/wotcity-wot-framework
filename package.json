@@ -1,0 +1,26 @@
+{
+  "name": "dotcity-wot-framework",
+  "version": "0.0.1",
+  "description": "Web of Things Framework by WoT.City",
+  "keywords": [
+    "iot",
+    "wot",
+    "websockets"
+  ],
+  "author": "jollen <jollen@jollen.org> (http://jollen.org/)",
+  "main": "index.js",
+  "homepage": "https://github.com/wotcity/dotcity-wot-framework",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "backbone": "^1.2.0",
+    "cluster": "^0.7.7",
+    "underscore": "^1.8.3",
+    "util": "^0.10.3",
+    "utils-merge": "^1.0.0",
+    "websocket": "^1.0.17"
+  },
+  "devDependencies": {},
+  "license": "MIT License"
+}

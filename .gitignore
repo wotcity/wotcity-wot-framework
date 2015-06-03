@@ -1,0 +1,5 @@
+node_modules/*
+.nodemonignore
+.DS_Store
+*.log
+*.swp
