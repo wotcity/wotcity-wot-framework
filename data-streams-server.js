@@ -27,18 +27,27 @@
  "use strict";
 
 /**
- * Expose `createApplication()`.
+ * Main WoT Framework
  */
- if (typeof(module) != "undefined" && typeof(exports) != "undefined")
-  exports = module.exports = createApplication;
+var Framework = require('./lib/framework');
 
- /**
- * Module dependencies.
+/**
+ * Create WoT.City application instance which is
+ * the basic WoT.City application. 
+ * (Websocket broker server)
  */
-var WebsocketBroker = require("./server")
-  , WebsocketRouter = require("./router")
-  , RequestHandlers = require("./requestHandlers")
-  , merge = require('utils-merge');
+
+/**
+ * Main Server Modules
+ */
+var WebsocketBroker = require("./lib/websocketBrokerServer/server")
+  , WebsocketRouter = require("./lib/websocketBrokerServer/router")
+  , RequestHandlers = require("./lib/websocketBrokerServer/requestHandlers");
+
+/**
+ * Util Modules
+ */
+var merge = require('utils-merge');
 
 /**
  * Websocket URL Router
@@ -52,7 +61,17 @@ var wsHandlers = {
 /*
  * Prototype and Class
  */
-var Application = {};
+var Server = {};
+
+/**
+ * Create an WoT server.
+ *
+ * @return {Object}
+ * @api public
+ */
+function createServer(options) {
+  return merge(Server, options);
+}
 
 /**
  * Start a Websocket server.
@@ -60,32 +79,39 @@ var Application = {};
  * @return {None}
  * @api public
  */
-Application.start = function() {
+Server.start = function() {
   var server = new WebsocketBroker();
   var router = new WebsocketRouter();
 
-  server.on('newThing', onNewThing.bind(this));
+ /**
+  * A new thing has been added.
+  */
+ var onNewThing = function(thing) {
+   // Callback framework APIs
+   this.register_thing(thing);
+ };
+
+  server.on('new_thing', onNewThing.bind(this));
 
   server.start(router.route, wsHandlers);
 };
 
 /**
- * Add a thing.
- *
- * @return {None}
- * @api private
+ * Create the server instance.
  */
-var onNewThing = function(thing) {
-  // Call framework APIs
-  this.registerThing(thing);
-};
+var broker = new createServer({
+	port: 8015
+});
 
 /**
- * Create an WoT application.
- *
- * @return {Object}
- * @api public
+ * Combined server with framework instance.
  */
-function createApplication(options) {
-  return merge(Application, options);
-}
+var streamsServer = new Framework({
+	app: broker
+});
+
+/**
+ * Start the server.
+ */
+streamsServer.start();
+

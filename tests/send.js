@@ -37,4 +37,4 @@ client.on('connect', function(connection) {
     sendNumber();
 });
 
-client.connect('ws://wot.city/object/test/send', '');
+client.connect('ws://localhost:8000/object/classroomTemp/send', '');

@@ -1,6 +1,11 @@
 # .City Web of Things Framework
 
-The Web of Things framework by WoT.City. It's an reference implementation of concepts of W3C Web of Things Framework.
+The Web of Things framework by WoT.City. It's a broker WoT server. This means that it isn't running on IoT devices. The current implementation has the following features and please read [Usage](#usage) for technical information..
+
+1. A Websocket broker server. 
+2. The main use case is for constrained devices (eg. microcontrollers) to sending data streams to the web.
+
+It's an reference implementation of concepts of W3C Web of Things Framework.
 
 1. [Install](#install)
 2. [Usage](#usage)
@@ -13,9 +18,15 @@ The Web of Things framework by WoT.City. It's an reference implementation of con
 1. [Download dotcity-wot-framework](https://github.com/wotcity/dotcity-wot-framework).
 2. Run `$ cd dotcity-wot-framework` to change the directory.
 3. Run `$ npm install` to install the dependencies if you don't already have them.
-4. Run `$ node index.js` to start the WoT server.
+4. Run `$ node index.js` to start the WoT websocket server.
 
 The server is running at `ws://localhost:8000`.
+
+## Tests
+
+1. Open a new terminal and run `$ cd tests` to enter the directory of test scripts.
+2. Run `$ node send.js` to start sending streaming data to WoT websocket server.
+3. Open a new terminal and run `$ node viewer.js` to start receiving streaming data over websocket. 
 
 ### Prerequisites
 
