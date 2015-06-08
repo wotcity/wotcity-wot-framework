@@ -1,0 +1,9 @@
+*.swp
+*.swo
+.local
+*.DS_Store
+node_modules
+*.pid
+npm-debug.log
+cache
+vendor
