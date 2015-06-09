@@ -29,7 +29,7 @@
 /**
  * Main WoT Framework
  */
-var Framework = require('./lib/framework');
+var Framework = require('../lib/framework');
 
 /**
  * Create WoT.City application instance which is
@@ -40,9 +40,9 @@ var Framework = require('./lib/framework');
 /**
  * Main Server Modules
  */
-var WebsocketBroker = require("./lib/websocketBrokerServer/server")
-  , WebsocketRouter = require("./lib/websocketBrokerServer/router")
-  , RequestHandlers = require("./lib/websocketBrokerServer/requestHandlers");
+var WebsocketBroker = require("../lib/websocketBrokerServer/server")
+  , WebsocketRouter = require("../lib/websocketBrokerServer/router")
+  , RequestHandlers = require("../lib/websocketBrokerServer/requestHandlers");
 
 /**
  * Util Modules
@@ -61,7 +61,17 @@ var wsHandlers = {
 /*
  * Prototype and Class
  */
-var Server = {};
+var Server = function () {
+
+};
+
+/**
+ * Event Callback System
+ */
+Server.prototype.onNewThing = function(thing) {
+  // Call framework APIs
+  this.registerThing(thing);
+};
 
 /**
  * Create an WoT server.
@@ -70,7 +80,8 @@ var Server = {};
  * @api public
  */
 function createServer(options) {
-  return merge(Server, options);
+  var instance = new Server();
+  return merge(instance, options);
 }
 
 /**
@@ -79,19 +90,15 @@ function createServer(options) {
  * @return {None}
  * @api public
  */
-Server.start = function() {
-  var server = new WebsocketBroker();
+Server.prototype.start = function() {
+  var server = new WebsocketBroker({
+    port: this.port,
+    host: this.host
+  });
   var router = new WebsocketRouter();
 
- /**
-  * A new thing has been added.
-  */
- var onNewThing = function(thing) {
-   // Callback framework APIs
-   this.register_thing(thing);
- };
-
-  server.on('new_thing', onNewThing.bind(this));
+  // Events
+  server.on('newThing', this.onNewThing.bind(this));
 
   server.start(router.route, wsHandlers);
 };
@@ -99,19 +106,16 @@ Server.start = function() {
 /**
  * Create the server instance.
  */
-var broker = new createServer({
-	port: 8015
-});
+var wsBrokerImpl = createServer({});
 
 /**
  * Combined server with framework instance.
  */
-var streamsServer = new Framework({
-	app: broker
+var wsServer = new Framework({
+	server: wsBrokerImpl
 });
 
 /**
  * Start the server.
  */
-streamsServer.start();
-
+wsServer.start();
