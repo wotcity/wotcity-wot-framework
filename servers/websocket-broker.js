@@ -32,12 +32,6 @@
 var Framework = require('../lib/framework');
 
 /**
- * Create WoT.City application instance which is
- * the basic WoT.City application. 
- * (Websocket broker server)
- */
-
-/**
  * Main Server Modules
  */
 var WebsocketBroker = require("../lib/websocketBrokerServer/server")

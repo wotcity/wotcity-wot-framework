@@ -16,6 +16,7 @@
   "dependencies": {
     "backbone": "^1.2.0",
     "cluster": "^0.7.7",
+    "coap": "^0.10.3",
     "underscore": "^1.8.3",
     "util": "^0.10.3",
     "utils-merge": "^1.0.0",
