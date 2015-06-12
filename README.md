@@ -20,7 +20,7 @@ It's an reference implementation of concepts of W3C Web of Things Framework.
 1. [Download dotcity-wot-framework](https://github.com/wotcity/dotcity-wot-framework).
 2. Run `$ cd dotcity-wot-framework` to change the directory.
 3. Run `$ npm install` to install the dependencies if you don't already have them.
-4. Run `$ node index.js` to start the WoT websocket server.
+4. Run `$ node servers/websocket-broker.js` to start the WoT websocket server.
 
 The server is running at `ws://localhost:8000`.
 
