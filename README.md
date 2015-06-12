@@ -1,5 +1,7 @@
 # .City Web of Things Framework
 
+[![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The Web of Things framework by WoT.City. It's a broker WoT server. This means that it isn't running on IoT devices. The current implementation has the following features and please read [Usage](#usage) for technical information..
 
 1. A Websocket broker server. 
