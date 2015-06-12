@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "backbone": "^1.2.0",
+    "bl": "^0.9.4",
     "cluster": "^0.7.7",
     "coap": "^0.10.3",
     "underscore": "^1.8.3",
