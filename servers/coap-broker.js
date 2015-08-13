@@ -85,9 +85,12 @@ function createServer(options) {
  * @api public
  */
 Server.prototype.start = function() {
+  var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
+  var host = process.env.HOST ? process.env.HOST : 'localhost';
+
   var server = new CoapBroker({
-    port: this.port,
-    host: this.host
+    port: port,
+    host: host
   });
   var router = new Router();
 
