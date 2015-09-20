@@ -135,7 +135,6 @@ var thingInit = function (things) {
   thing_handler.init(things);
 
   console.log("WoT Framework is initialised");
-  things[0].implementation.start();
 }
 
 // init local things

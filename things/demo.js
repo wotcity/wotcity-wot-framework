@@ -45,9 +45,43 @@ var device = function () {
 
 var d = new device();
 
+var td = {
+    "name": "door33",
+    "model": {
+        "@events": {
+            "bell": {
+                fields: [
+                    "timestamp"
+                ]
+            },
+        },
+        "@properties": {
+            "is_open": {
+                "type": "boolean"
+            },
+            "on": {
+                "type": "boolean",
+                "writeable": true
+            },
+            "temperature": {
+                "type": "numeric"
+            }
+        },
+        "@actions": {
+            "unlock": null,
+            "lock": null
+        }
+    },
+    "remote": {
+        "uri": "http://localhost:8890"
+    }
+};
+
 var things = [
     {
         "thing": function (callback) {
+            console.log('Thing self init.');
+            callback(null, td);
         },
         "implementation": {
             start: function (thing) {
