@@ -10,9 +10,9 @@ The Web of Things framework by WoT.City. It contains various WoT servers, includ
 
 ## Discussion
 
-There are various ways to get involved with .CITY Web of Things Framework. We're looking for help identifying bugs, writing documentation and contributing codes.
+There are various ways to get involved with WoT.City Web of Things Framework. We're looking for help identifying bugs, writing documentation and contributing codes.
 
-You can also find us in the [#wotcity](http://webchat.freenode.net/?channels=wotcity) IRC channel on irc.freenode.net.
+You can also join the discussion with us at [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge).
 
 ## How to Report Bugs
 
