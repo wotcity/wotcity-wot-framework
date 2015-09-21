@@ -2,7 +2,11 @@
 
 [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-The Web of Things framework by WoT.City. It's a broker WoT server. This means that it isn't running on IoT devices. The current implementation has the following features and please read [Usage](#usage) for technical information..
+The Web of Things framework by WoT.City. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
+
+## Broker Servers
+
+Broker servers are not running on IoT devices. The current implementation has the following features and please read [Usage](#usage) for technical information..
 
 1. A Websocket broker server. 
 2. The main use case is for constrained devices (eg. microcontrollers) to sending data streams to the web.
@@ -24,7 +28,7 @@ It's an reference implementation of concepts of W3C Web of Things Framework.
 
 The server is running at `ws://localhost:8000`.
 
-## Tests
+### Tests
 
 1. Open a new terminal and run `$ cd tests` to enter the directory of test scripts.
 2. Run `$ node send.js` to start sending streaming data to WoT websocket server.
