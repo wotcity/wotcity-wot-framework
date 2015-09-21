@@ -16,7 +16,7 @@ You can also join the discussion with us at [![Join the chat at https://gitter.i
 
 ## How to Report Bugs
 
-Bugs are reported via [https://github.com/wotcity/dotcity-wot-framework](https://github.com/wotcity/dotcity-wot-framework).
+Bugs are reported via [https://github.com/wotcity/wotcity-wot-framework](https://github.com/wotcity/wotcity-wot-framework).
 
 ## License
 

@@ -1,5 +1,7 @@
 # WebSocket Broker Servers
 
+[![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 A WebSocket broker server is not running on IoT devices. The main use case is for constrained devices (eg. microcontrollers) to send data streams over the web.
 
 1. [Install](#install)
@@ -62,4 +64,4 @@ You can also find us in the [#wotcity](http://webchat.freenode.net/?channels=wot
 
 ## How to Report Bugs
 
-Bugs are reported via [https://github.com/wotcity/dotcity-wot-framework](https://github.com/wotcity/dotcity-wot-framework).
+Bugs are reported via [https://github.com/wotcity/wotcity-wot-framework](https://github.com/wotcity/wotcity-wot-framework).
