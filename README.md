@@ -1,70 +1,12 @@
-# .City Web of Things Framework
+# WoT.City Web of Things Framework
 
 [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 The Web of Things framework by WoT.City. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
 
-## Broker Servers
+## Install and Usage
 
-Broker servers are not running on IoT devices. The current implementation has the following features and please read [Usage](#usage) for technical information..
-
-1. A Websocket broker server. 
-2. The main use case is for constrained devices (eg. microcontrollers) to sending data streams to the web.
-
-It's an reference implementation of concepts of W3C Web of Things Framework.
-
-1. [Install](#install)
-2. [Usage](#usage)
-3. [Discussion](#discussion)
-4. [How To Report Bugs](#how-to-report-bugs)
-5. [Authors](#authors)
-
-## Install
-
-1. [Download dotcity-wot-framework](https://github.com/wotcity/dotcity-wot-framework).
-2. Run `$ cd dotcity-wot-framework` to change the directory.
-3. Run `$ npm install` to install the dependencies if you don't already have them.
-4. Run `$ node servers/websocket-broker.js` to start the WoT websocket server.
-
-The server is running at `ws://localhost:8000`.
-
-### Tests
-
-1. Open a new terminal and run `$ cd tests` to enter the directory of test scripts.
-2. Run `$ node send.js` to start sending streaming data to WoT websocket server.
-3. Open a new terminal and run `$ node viewer.js` to start receiving streaming data over websocket. 
-
-### Prerequisites
-
-1. [Node.js](https://nodejs.org). Note: Node should be with a version above 0.10.x.
-
-## Usage
-
-To send the data over the Internet, IoT devices should use the url below to establish a connection with the server.
-
-```
-ws://[hostname]/object/[name]/send
-```
-
-You must specify an object name and your hostname. For example:
-
-```
-ws://localhost:8000/object/frontdoor/send
-```
-
-To receive data from the server, the frontend should use the url below to establish a connection with the server.
-
-```
-ws://localhost:8000/object/[name]/viewer
-```
-
-Also, you need to specify the object name and hostname. For example:
-
-```
-ws://localhost:8000/object/frontdoor/viewer
-```
-
-An physical object has two significant resources, *send* and *viewer*. *send* is to send device data to the server over Websocket connection. *viewer* could be used by web frontend to receive real-time data over the connection.
+* [Install and Run Broker Servers](WebSocketBroker.md)
 
 ## Discussion
 
