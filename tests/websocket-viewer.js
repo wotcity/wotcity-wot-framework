@@ -21,4 +21,4 @@ client.on('connect', function(connection) {
     });
 });
 
-client.connect('ws://localhost:8000/object/classroomTemp/viewer', '');
+client.connect('wss://wot.city/object/testman/viewer', '');
