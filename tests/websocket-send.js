@@ -37,7 +37,7 @@ client.on('connect', function(connection) {
     sendNumber();
 });
 
-client.connect('wss://wot.city/object/12345678/send', '');
+client.connect('wss://wot.city/object/5550937980d51931b3000009/send', '');
 
 
 
