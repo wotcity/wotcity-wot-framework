@@ -1,0 +1,1 @@
+Server implementation was migrated to [Devify](https://github.com/DevifyPlatform) project.

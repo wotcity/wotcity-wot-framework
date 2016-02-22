@@ -24,7 +24,7 @@ client.on('connect', function(connection) {
         if (connection.connected) {
             var number = Math.round(Math.random() * 0xFFFFFF);
             // 1 to 10
-            var lucky = Math.round(Math.random() * 80 + 1);
+            var lucky = Math.round(Math.random() * 40 + 1);
             //var obj = {ax: number.toString(), ay: 0, az: 0};
             var obj = {temperature: lucky};
 
@@ -37,7 +37,7 @@ client.on('connect', function(connection) {
     sendNumber();
 });
 
-client.connect('wss://wot.city/object/5550937980d51931b3000009/send', '');
+client.connect('ws://localhost:8000/object/5550937980d51931b3000009/send', '');
 
 
 

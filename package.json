@@ -1,6 +1,6 @@
 {
   "name": "wotcity.io",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Web of Things Framework by WoT.City",
   "keywords": [
     "iot",
@@ -9,7 +9,7 @@
   ],
   "author": "jollen <jollen@jollen.org> (http://jollen.org/)",
   "main": "index.js",
-  "homepage": "https://github.com/wotcity/dotcity-wot-framework",
+  "homepage": "https://github.com/wotcity/wotcity-wot-framework",
   "directories": {
     "test": "tests"
   },

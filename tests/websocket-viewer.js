@@ -21,4 +21,4 @@ client.on('connect', function(connection) {
     });
 });
 
-client.connect('wss://wot.city/object/testman/viewer', '');
+client.connect('ws://192.168.43.71:8000/object/5550937980d51931b3000009/viewer', '');
