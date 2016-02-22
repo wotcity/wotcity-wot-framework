@@ -8,7 +8,7 @@ var sendNumber = function() {
 
     console.log('Pushing: ' + data);
 
-    var clientWriable = coap.request('coap://wot.city:8147/object/5550937980d51931b3000009/send');
+    var clientWriable = coap.request('coap://127.0.0.1:8000/object/5550937980d51931b3000009/send');
     clientWriable.end(new Buffer(data));
 
     setTimeout(sendNumber, 1000);
