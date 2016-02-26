@@ -8,7 +8,7 @@ var sendNumber = function() {
 
     console.log('Pushing: ' + data);
 
-    var clientWriable = coap.request('coap://localhost:8000/object/5550937980d51931b3000009/send');
+    var clientWriable = coap.request('coap://127.0.0.1:8000/object/5550937980d51931b3000009/send');
     clientWriable.end(new Buffer(data));
 
     setTimeout(sendNumber, 1000);
@@ -18,11 +18,10 @@ var sendNumber = function() {
 var sendPath = function() {
     console.log('Connecting...');
 
-    var clientWriable = coap.request('coap://localhost:8000/object/5550937980d51931b3000009/send');
+    var clientWriable = coap.request('coap://172.20.10.4:8000/object/5550937980d51931b3000009/send');
 
     clientWriable.end(new Buffer('i am tester'));
 };
 
-sendPath();
-
+//sendPath();
 sendNumber();
