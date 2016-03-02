@@ -24,15 +24,16 @@
  *
  */
 
-var Framework = require('./lib/framework');
-
-var WebsocketBroker = require("./lib/websocketBrokerServer/server")
+var Framework = require('./lib/framework')
+  , WebsocketBroker = require("./lib/websocketBrokerServer/server")
   , WebsocketRouter = require("./lib/websocketBrokerServer/router")
   , WebsocketRequestHandlers = require("./lib/websocketBrokerServer/requestHandlers")
   , CoapBroker = require("./lib/coapServer/server")
   , CoapRouter = require("./lib/coapServer/router")
   , CoapRequestHandlers = require("./lib/coapServer/requestHandlers");
 
+var Component = require('./runtime/component')
+  , Runtime = require('./runtime/runtime')
 
  module.exports = {
  	Framework: Framework,
@@ -43,5 +44,8 @@ var WebsocketBroker = require("./lib/websocketBrokerServer/server")
 
  	CoapBroker: CoapBroker,
  	CoapRouter: CoapRouter,
- 	CoapRequestHandlers: CoapRequestHandlers
+ 	CoapRequestHandlers: CoapRequestHandlers,
+
+ 	Component: Component,
+ 	Runtime: Runtime
  }
