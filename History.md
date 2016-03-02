@@ -1,11 +1,26 @@
 Changelog
 =========
 
+Version 0.8.0
+--------------
+*Release 2016-03-02*
+
+* Add an initial FBP support
+* Add a simple and light-wieght FBP network runtime
+* Add a simple component design
+
+Version 0.7.0
+--------------
+*Release 2016-02-22*
+
+* The beta 7
+* Standalone or use with [Devify](https://github.com/DevifyPlatform)
+
 Version 0.5.0
 --------------
 *Release 2015-09-15*
 
-* The beat 0.5
+* The beta 5
 * Support websocket broker server
 * Support coap broker server
 * Initial architecture design

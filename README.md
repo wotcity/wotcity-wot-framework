@@ -4,6 +4,8 @@
 
 The Web of Things framework by WoT.City. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
 
+Please read [devify-server](https://github.com/DevifyPlatform/devify-server/blob/master/README.md) to use this framework with [Devify](https://github.com/DevifyPlatform).
+
 ## Install and Usage
 
 * [Install and Run Broker Servers](WebSocketBroker.md)
