@@ -191,7 +191,7 @@ Network.prototype.load = function(components) {
     // Not an array
     return;
 
-  if (Object.getOwnPropertyNames(graph).length === 0)
+  if (Object.getOwnPropertyNames(components).length === 0)
     // An empty object
     return;
 
