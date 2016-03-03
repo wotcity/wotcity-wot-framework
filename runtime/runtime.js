@@ -186,7 +186,7 @@ Network.prototype.useComponent = function(component) {
 Network.prototype.load = function(components) {
   if (typeof components === 'undefined')
     return;
-  
+
   if (typeof components.length === 'undefined')
     // Not an array
     return;
@@ -211,7 +211,7 @@ Network.prototype.runtime = Promise.coroutine(function* (graph) {
     // An empty object
     return;
 
-  if (typeof graph.length === 'undefined')
+  if (typeof graph.connections.length === 'undefined')
     // Not an array
     return;
 
