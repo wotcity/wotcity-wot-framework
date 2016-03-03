@@ -184,6 +184,17 @@ Network.prototype.useComponent = function(component) {
 };
 
 Network.prototype.load = function(components) {
+  if (typeof components === 'undefined')
+    return;
+  
+  if (typeof components.length === 'undefined')
+    // Not an array
+    return;
+
+  if (Object.getOwnPropertyNames(graph).length === 0)
+    // An empty object
+    return;
+
   components.forEach(function (component) {
     this.useComponent(component);
   }.bind(this));
@@ -193,6 +204,17 @@ Network.prototype.load = function(components) {
  * Runtime of the network
  */
 Network.prototype.runtime = Promise.coroutine(function* (graph) {
+  if (typeof graph === 'undefined')
+    return;
+
+  if (Object.getOwnPropertyNames(graph).length === 0)
+    // An empty object
+    return;
+
+  if (typeof graph.length === 'undefined')
+    // Not an array
+    return;
+
   // Load graph
   graph.connections.forEach(function (connection) {
     this.connect( connection.upproc
