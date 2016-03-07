@@ -14,7 +14,7 @@ Please use [Devify CLI](https://github.com/DevifyPlatform/devify-cli) to speed u
 
 There are various ways to get involved with WoT.City Web of Things Framework. We're looking for help identifying bugs, writing documentation and contributing codes.
 
-You can also join the discussion with us at [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge).
+You can join the discussion with us at [wotcity/wotcity-wot-framework](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge).
 
 ## How to Report Bugs
 
