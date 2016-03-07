@@ -2,9 +2,9 @@
 
 [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-The Web of Things framework by WoT.City. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
+The Web of Things framework by WoT.City. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc.
 
-Please read [devify-server](https://github.com/DevifyPlatform/devify-server/blob/master/README.md) to use this framework with [Devify](https://github.com/DevifyPlatform).
+Please read [devify-server](https://github.com/DevifyPlatform/devify-server/blob/master/README.md) for using this framework with [Devify](https://github.com/DevifyPlatform).
 
 ## Install and Usage
 
