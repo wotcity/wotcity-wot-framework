@@ -70,11 +70,16 @@ Network.prototype.send = function(data) {
     return;
 
   // No running process.
-  // This is the initial payload (the first data).
-  if (typeof(data._initial) !== 'undefined') {
-    // The upproc of the first connection is the 
-    // first process of the graph, it is where the
-    // initial payload goes to.
+  // This is the data from hardware devices.
+  if (typeof data.upproc !== 'undefined'
+    && data.upproc === 'devify-device'
+    && typeof data.upport !== 'undefined'
+    && data.upport === 'out') {
+    // The first process of the graph is the 'devify-device'
+    // which is the *system* upproc. And its outPorts are the 
+    // source of hardware data.
+    // It's automatically connected to the inPorts of the first
+    // user upproc.
     connection = this._connections[0];
     payload = data.payload;
   } else {
