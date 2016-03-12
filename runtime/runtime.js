@@ -68,7 +68,7 @@ Network.prototype.send = function(data) {
   if (!this._connections.length)
     // There is no connections of the graph.
     return;
-
+console.log('okokoko')
   // No running process.
   // This is the data from hardware devices.
   if (typeof data.upproc !== 'undefined'
