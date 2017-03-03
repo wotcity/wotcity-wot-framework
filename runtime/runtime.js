@@ -49,10 +49,10 @@ function Network() {
  */
 Network.prototype.connect = function(upproc, upport, downproc, downport) {
   this._connections.push({
-    upproc, 
-    upport, 
-    downproc, 
-    downport
+    upproc: upproc, 
+    upport: upport, 
+    downproc: downproc, 
+    downport: downport
   });
 };
 
@@ -118,7 +118,7 @@ Network.prototype.contextSwitchByName = function(name) {
 /**
  * Run the queue. Handle the rear message.
  */
-Network.prototype.run = Promise.coroutine(function* () {
+Network.prototype.run = function() {
   if (!this._queue.length)
     return;
 
@@ -168,8 +168,8 @@ Network.prototype.run = Promise.coroutine(function* () {
   this._running.activeInPortName = inPortName;
   this._elapsed = Date.now() - start;
 
-  console.log('Elapsed time for ' + inPortName + ': ' + this._elapsed + '(ms)...')
-});
+  console.log('Elapsed time for ' + inPortName + ': ' + this._elapsed + '(ms)...');
+};
 
 Network.prototype.useComponent = function(component) {
   if (typeof component === 'undefined')
@@ -208,7 +208,7 @@ Network.prototype.load = function(components) {
 /**
  * Runtime of the network
  */
-Network.prototype.runtime = Promise.coroutine(function* (graph) {
+Network.prototype.runtime = function(graph) {
   if (typeof graph === 'undefined')
     return;
 
@@ -230,7 +230,6 @@ Network.prototype.runtime = Promise.coroutine(function* (graph) {
 
   // TBD: The Non-Preemptive Scheduler
   while (1) {
-    yield Promise.delay(100);
     if (this._queue.length > 512) {
       console.log('Queue reaches maximum size of 512...')
 
@@ -239,4 +238,4 @@ Network.prototype.runtime = Promise.coroutine(function* (graph) {
     }
     this.run();
   }
-});
+};
