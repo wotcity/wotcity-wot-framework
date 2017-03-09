@@ -10,6 +10,7 @@ Please use [Devify CLI](https://github.com/DevifyPlatform/devify-cli) to speed u
 
 * [Install and Run Websocket Broker Servers](WebSocketBroker.md)
 * [Install and Run Coap Broker Servers](CoapBroker.md)
+* [Install and Run Coap-to-Websocket Proxy](CoapToWebsocketProxy.md)
 
 ## Discussion
 

@@ -88,8 +88,7 @@ Server.prototype.start = function() {
 
   var server = new CoapBroker({
     port: port,
-    host: host,
-    endpoint: 'localhost:8000'
+    host: host
   });
   var router = new Router();
 
