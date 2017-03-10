@@ -54,7 +54,7 @@ An physical object has two significant resources, *send* and *viewer*. *send* is
 ### Tests
 
 1. Open a new terminal and run `$ cd tests` to enter the directory of test scripts.
-2. Run `$ node coap-send.js` to start sending streaming data to WoT coap proxy server.
+2. Run `$ node coap-send-data.js` to start sending streaming data to WoT coap proxy server.
 3. Open a new terminal and run `$ node websocket-viewer.js` to start receiving streaming data over websocket. 
 
 ## Discussion
