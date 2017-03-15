@@ -90,8 +90,7 @@ Server.prototype.start = function() {
     port: port,
     host: host,
     endpoint: [
-      'localhost:8000',
-      'localhost:8001'
+      'localhost:8000'
     ]
   });
   var router = new Router();
