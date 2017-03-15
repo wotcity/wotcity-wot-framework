@@ -19,7 +19,7 @@ A Coap broker server is not running on IoT devices. The main use case is for con
 
 By default, the Coap proxy server is running at `coap://localhost:8000`. The Websocket endpoint server is running at `ws://localhost:8000`. 
 
-The address of only **ONE** target endpoint set in Coap proxy server is `localhost:8000`. You can check code in `servers/coap-proxy-websocket.js':
+The address of only **ONE** target endpoint set in Coap proxy server is `localhost:8000`. You can check code in `servers/coap-proxy-websocket.js`:
 ```javascript
 var server = new CoapBroker({
     port: port,
