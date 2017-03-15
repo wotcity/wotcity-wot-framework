@@ -93,7 +93,10 @@ Server.prototype.start = function() {
 
   var server = new WebsocketBroker({
     port: port,
-    host: host
+    host: host,
+    endpoint: [
+      'localhost:8000'
+    ]
   });
   var router = new WebsocketRouter();
 
