@@ -112,7 +112,11 @@ var coapServer = new Framework({
   server: coapBrokerImpl
 });
 
+if (typeof(module) != "undefined" && typeof(exports) != "undefined")
+  module.exports = coapServer;
+
 /**
  * Start the server.
  */
-coapServer.start();
+if (!module.parent)
+  coapServer.start();
