@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/wotcity/wotcity-wot-framework](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wotcity/wotcity-wot-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-A Coap broker server is not running on IoT devices. The main use case is for constrained devices (eg. microcontrollers) to send data streams over the web.
+A Coap broker server is not running on IoT devices. The main use case is for constrained devices (eg. microcontrollers) to send data streams over the web, and then proxying to websocket endpoints.
 
 1. [Install](#install)
 2. [Usage](#usage)
@@ -17,7 +17,19 @@ A Coap broker server is not running on IoT devices. The main use case is for con
 4. Run `$ node servers/coap-proxy-websocket.js` to start the WoT Coap proxy server.
 4. Run `$ node servers/websocket-broker.js` to start the WoT Websocket endpoint server.
 
-By default, the address of target endpoint set in Coap proxy server is `ws://localhost:8000`. The Coap proxy server is running at `coap://localhost:8000`. The Websocket endpoint server is running at `ws://localhost:8000`.
+By default, the Coap proxy server is running at `coap://localhost:8000`. The Websocket endpoint server is running at `ws://localhost:8000`. 
+
+The address of only **ONE** target endpoint set in Coap proxy server is `localhost:8000`. You can check code in `servers/coap-proxy-websocket.js`:
+```javascript
+var server = new CoapBroker({
+    port: port,
+    host: host,
+    endpoint: [
+      'localhost:8000'
+    ]
+});
+```
+In this setting, Coap proxy server will proxy data to `ws://localhost:8000`. Of course, you can add other hosts, for example `localhost:8001` in `endpoint` array to proxy data to multiple endpoints. 
 
 ### Prerequisites
 
@@ -52,10 +64,15 @@ ws://localhost:8000/object/frontdoor/viewer
 An physical object has two significant resources, *send* and *viewer*. *send* is to send device data to the server over Coap connection. *viewer* could be used by web frontend to receive real-time data over the Websocket connection.
 
 ### Tests
-
+##### Proxy to one endpoint
 1. Open a new terminal and run `$ cd tests` to enter the directory of test scripts.
 2. Run `$ node coap-send-data.js` to start sending streaming data to WoT coap proxy server.
 3. Open a new terminal and run `$ node websocket-viewer.js` to start receiving streaming data over websocket. 
+ 
+##### Proxy to two endpoint
+1. Open a new terminal and run `$ export export PORT=8001; node servers/websocket-broker.js` to start the 2nd websocket endpoint at `ws://localhost:8001`.
+2. Add another endpoint in `servers/coap-proxy-websocket.js`, for example `localhost:8001`, and then start to run the Coap proxy server.
+3. Open a new terminal and run `$ export export PORT=8001; node test/websocket-viewer.js` to start the 2nd websocket viewer.
 
 ## Discussion
 
