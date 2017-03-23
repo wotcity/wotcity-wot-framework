@@ -119,7 +119,11 @@ var wsServer = new Framework({
 	server: wsBrokerImpl
 });
 
+if (typeof(module) != "undefined" && typeof(exports) != "undefined")
+  module.exports = wsServer;
+
 /**
  * Start the server.
  */
-wsServer.start();
+if (!module.parent)
+  wsServer.start();
