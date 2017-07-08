@@ -56,20 +56,29 @@ var wsHandlers = {
  * Prototype and Class
  */
 var Server = function () {
-
+  this.server = null;
+  this.callbacks = {
+    ondata: function() { return 0; },
+    onnewthing: function() { return 0; }
+  };
 };
 
 /**
- * Event Callback System
+ * Event callback factory
  */
 Server.prototype.onNewThing = function(thing) {
   // Call framework APIs
   this.registerThing(thing);
+  this.callbacks['onnewthing'](thing);
 };
 
+/**
+ * Event callback factory
+ */
 Server.prototype.onData = function(payload) {
   // Call framework APIs
   //console.log('<DATA> ' + payload.data);
+  this.callbacks['ondata'](payload);
 };
 
 /**
@@ -86,12 +95,21 @@ function createServer(options) {
 /**
  * Start a Websocket server.
  *
+ * @param options {Object} The event callbacks
  * @return {None}
  * @api public
  */
-Server.prototype.start = function() {
+Server.prototype.start = function(options) {
   var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
   var host = process.env.HOST ? process.env.HOST : 'localhost';
+
+
+
+  if (options && options.ondata && typeof options.ondata === 'function') 
+    this.callbacks['ondata'] = options.ondata;
+
+  if (options && options.onnewthing && typeof options.onnewthing === 'function')   
+    this.callbacks['onnewthing'] = options.onnewthing;
 
   var server = new WebsocketBroker({
     port: port,
@@ -99,12 +117,26 @@ Server.prototype.start = function() {
   });
   var router = new WebsocketRouter();
 
-  // Events
+  // Events callback factory
   server.on('newThing', this.onNewThing.bind(this));
   server.on('data', this.onData.bind(this));
 
   server.start(router.route, wsHandlers);
+
+  this.server = server;
 };
+
+/**
+ * Shutdown the Websocket server.
+ *
+ * @param cb {Function} The complete callback
+ * @return {}
+ * @api public
+ */
+Server.prototype.shutdown = function(cb) {                                  
+  if (this.server)
+    this.server.shutdown(cb);
+}
 
 /**
  * Create the server instance.
