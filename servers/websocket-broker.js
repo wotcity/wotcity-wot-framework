@@ -84,8 +84,8 @@ Server.prototype.onData = function(payload) {
 /**
  * Event callback factory
  */
-Server.prototype.onStart = function(host, port) {
-  this.callbacks['onstart'](host, port);
+Server.prototype.onStart = function(payload) {
+  this.callbacks['onstart'](payload);
 };
 
 /**
