@@ -4,14 +4,12 @@
 
 The Web of Things framework by WoT.City open source project. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
 
-Please use [Devify CLI](https://github.com/DevifyPlatform/devify-cli) to speed up developing IoT servers of WoT.City.
-
 ## Install and Usage
 
-* [Install and Run Websocket Broker Servers](WebSocketBroker.md)
-* [Install and Run Coap Broker Servers](CoapBroker.md)
-* [Install and Run Coap-to-Websocket Proxy](CoapToWebsocketProxy.md)
-* [Install and Run Websocket-to-Coap Proxy](WebsocketToCoapProxy.md)
+* [Install and Run Websocket Broker Servers](docs/WebSocketBroker.md)
+* [Install and Run Coap Broker Servers](docs/CoapBroker.md)
+* [Install and Run Coap-to-Websocket Proxy](docs/CoapToWebsocketProxy.md)
+* [Install and Run Websocket-to-Coap Proxy](docs/WebsocketToCoapProxy.md)
 
 ## Discussion
 
