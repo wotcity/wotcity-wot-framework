@@ -82,6 +82,13 @@ Server.prototype.onData = function(payload) {
 };
 
 /**
+ * Event callback factory
+ */
+Server.prototype.onStart = function(host, port) {
+  this.callbacks['onstart'](host, port);
+};
+
+/**
  * Create an WoT server.
  *
  * @return {Object}
@@ -103,13 +110,14 @@ Server.prototype.start = function(options) {
   var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
   var host = process.env.HOST ? process.env.HOST : 'localhost';
 
-
-
   if (options && options.ondata && typeof options.ondata === 'function') 
     this.callbacks['ondata'] = options.ondata;
 
   if (options && options.onnewthing && typeof options.onnewthing === 'function')   
     this.callbacks['onnewthing'] = options.onnewthing;
+
+  if (options && options.onstart && typeof options.onstart === 'function')   
+    this.callbacks['onstart'] = options.onstart;
 
   var server = new WebsocketBroker({
     port: port,
@@ -120,6 +128,7 @@ Server.prototype.start = function(options) {
   // Events callback factory
   server.on('newThing', this.onNewThing.bind(this));
   server.on('data', this.onData.bind(this));
+  server.on('start', this.onStart.bind(this));
 
   server.start(router.route, wsHandlers);
 

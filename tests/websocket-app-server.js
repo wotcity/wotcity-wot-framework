@@ -8,6 +8,10 @@ var onmessage = function(payload) {
 	console.log('[', deviceId, ']', payload.data);
 };
 
+var onstart = function(port, host) {
+}
+
 server.start({
+	onstart: onstart,
 	onmessage: onmessage
 });
