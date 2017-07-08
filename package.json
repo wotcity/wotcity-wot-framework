@@ -24,6 +24,12 @@
     "utils-merge": "^1.0.0",
     "websocket": "^1.0.17"
   },
-  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "vows": "^0.8.1",    
+    "assert": "^1.4.1"
+  },
   "license": "MIT License"
 }
