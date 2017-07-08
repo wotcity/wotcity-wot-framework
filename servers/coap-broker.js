@@ -56,7 +56,12 @@ var coapHandlers = {
  * Prototype and Class
  */
 var Server = function () {
-
+  this.server = null;  
+  this.callbacks = {
+    ondata: function() { return 0; },
+    onnewthing: function() { return 0; },
+    onstart: function() { return 0; }
+  };
 };
 
 /**
@@ -65,6 +70,23 @@ var Server = function () {
 Server.prototype.onNewThing = function(thing) {
   // Call framework APIs
   this.registerThing(thing);
+  this.callbacks['onnewthing'](thing);  
+};
+
+/**
+ * Event callback factory
+ */
+Server.prototype.onData = function(payload) {
+  // Call framework APIs
+  //console.log('<DATA> ' + payload.data);
+  this.callbacks['ondata'](payload);
+};
+
+/**
+ * Event callback factory
+ */
+Server.prototype.onStart = function(payload) {
+  this.callbacks['onstart'](payload);
 };
 
 /**
@@ -84,9 +106,18 @@ function createServer(options) {
  * @return {None}
  * @api public
  */
-Server.prototype.start = function() {
+Server.prototype.start = function(options) {
   var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
   var host = process.env.HOST ? String(process.env.HOST) : 'localhost';
+
+  if (options && options.ondata && typeof options.ondata === 'function') 
+    this.callbacks['ondata'] = options.ondata;
+
+  if (options && options.onnewthing && typeof options.onnewthing === 'function')   
+    this.callbacks['onnewthing'] = options.onnewthing;
+
+  if (options && options.onstart && typeof options.onstart === 'function')   
+    this.callbacks['onstart'] = options.onstart;
 
   var server = new CoapBroker({
     port: port,
@@ -94,11 +125,27 @@ Server.prototype.start = function() {
   });
   var router = new Router();
 
-  // Events
+  // Events callback factory
   server.on('newThing', this.onNewThing.bind(this));
+  server.on('data', this.onData.bind(this));
+  server.on('start', this.onStart.bind(this));
 
   server.start(router.route, coapHandlers);
+
+  this.server = server;
 };
+
+/**
+ * Shutdown the CoAP server.
+ *
+ * @param cb {Function} The complete callback
+ * @return {}
+ * @api public
+ */
+Server.prototype.shutdown = function(cb) {                                  
+  if (this.server)
+    this.server.shutdown(cb);
+}
 
 /**
  * Create the server instance.
