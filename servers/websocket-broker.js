@@ -59,7 +59,8 @@ var Server = function () {
   this.server = null;
   this.callbacks = {
     ondata: function() { return 0; },
-    onnewthing: function() { return 0; }
+    onnewthing: function() { return 0; },
+    onstart: function() { return 0; }
   };
 };
 
