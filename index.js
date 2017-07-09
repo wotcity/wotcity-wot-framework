@@ -33,10 +33,15 @@ var Framework = require('./lib/framework')
   , CoapRequestHandlers = require("./lib/coapServer/requestHandlers");
 
 var Component = require('./runtime/component')
-  , Runtime = require('./runtime/runtime')
+  , Runtime = require('./runtime/runtime');
 
- module.exports = {
- 	Framework: Framework,
+var WebsocketBroker = require('./servers/websocket-broker')
+  , CoapBroker = require('./servers/coap-broker')
+  , WebsocketToCoapProxy = require('./servers/websocket-proxy-coap')
+  , CoapToWebsocketProxy = require('./servers/coap-proxy-websocket');
+
+module.exports = {
+	Framework: Framework,
 
  	WebsocketBroker: WebsocketBroker,
  	WebsocketRouter: WebsocketRouter,
@@ -47,5 +52,12 @@ var Component = require('./runtime/component')
  	CoapRequestHandlers: CoapRequestHandlers,
 
  	Component: Component,
- 	Runtime: Runtime
- }
+ 	Runtime: Runtime,
+
+  Server: {
+	  WebsocketBroker: WebsocketBroker,
+	  CoapBroker: CoapBroker,
+	  WebsocketToCoapProxy: WebsocketToCoapProxy,
+	  CoapToWebsocketProxy: CoapToWebsocketProxy
+  }
+};
