@@ -8,6 +8,7 @@ Version 0.9.0
 * Add CoAP-to-WebSocket Proxy and WebSocket-to-CoAP Proxy support
 * Add multiple endpoints support
 * Add test environment and CI
+* Add SDK
 
 Version 0.8.0
 --------------
