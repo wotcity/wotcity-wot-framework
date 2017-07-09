@@ -49,10 +49,10 @@ function Network() {
  */
 Network.prototype.connect = function(upproc, upport, downproc, downport) {
   this._connections.push({
-    upproc, 
-    upport, 
-    downproc, 
-    downport
+    upproc: upproc, 
+    upport: upport, 
+    downproc: downproc, 
+    downport: downport
   });
 };
 
