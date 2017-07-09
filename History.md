@@ -1,6 +1,14 @@
 Changelog
 =========
 
+Version 0.9.0
+--------------
+*Release 2017-07-09*
+
+* Add CoAP-to-WebSocket Proxy and WebSocket-to-CoAP Proxy support
+* Add multiple endpoints support
+* Add test environment and CI
+
 Version 0.8.0
 --------------
 *Release 2016-03-02*
