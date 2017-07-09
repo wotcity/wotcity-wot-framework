@@ -1,6 +1,7 @@
 # WoT.City Web of Things Framework
 
 [![Build Status](https://travis-ci.org/wotcity/wotcity-wot-framework.svg?branch=master)](https://travis-ci.org/wotcity/wotcity-wot-framework)
+[![npm version](https://img.shields.io/npm/v/wotcity.io.svg)](https://github.com/wotcity/wotcity-wot-framework)
 
 The Web of Things framework by WoT.City open source project. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
 
