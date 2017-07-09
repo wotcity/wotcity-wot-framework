@@ -11,6 +11,12 @@ The Web of Things framework by WoT.City open source project. It contains various
 * [Install and Run Coap-to-Websocket Proxy](docs/CoapToWebsocketProxy.md)
 * [Install and Run Websocket-to-Coap Proxy](docs/WebsocketToCoapProxy.md)
 
+## SDK
+
+There is a SDK that you can also use ```wotcity.io``` as the SDK.
+
+* [Install and Use WoT.City SDK](docs/SDK.md)
+
 ## Discussion
 
 There are various ways to get involved with WoT.City Web of Things Framework. We're looking for help identifying bugs, writing documentation and contributing codes.
