@@ -1,6 +1,6 @@
 var server = require('../servers/websocket-broker');
 
-var onmessage = function(payload) {
+var ondata = function(payload) {
 	var obj = JSON.parse(payload.data);
 	var paths = payload.pathname.split('/');
 	var deviceId = paths[2];
@@ -13,5 +13,5 @@ var onstart = function(payload) {
 
 server.start({
 	onstart: onstart,
-	onmessage: onmessage
+	ondata: ondata
 });
