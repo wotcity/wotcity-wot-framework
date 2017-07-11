@@ -20,11 +20,64 @@ var Server = require('wotcity.io').Server;
 Server.WebsocketBroker.start();
 ```
 
-## APIs
+# APIs
 
-### Servers
+## Class: Server.WebsocketBroker
 
-* WebsocketBroker
-* CoapBroker
-* WebsocketToCoapProxy
-* CoapToWebsocketProxy
+To start a Websocket broker server:
+
+```
+var Server = require('wotcity.io').Server;
+Server.WebsocketBroker.start();
+```
+
+### new Server.WebsocketBroker(callback)
+
+* ```options``` <Object> Options containing response events.
+ * ondata <Function> Callback function that receives client data
+ * onstart <function> Callback function that notifies the success of creating the Websocket connection.
+
+## Class: Server.CoapBroker
+
+To start a CoAP broker server:
+
+```
+var Server = require('wotcity.io').Server;
+Server.CoapBroker.start();
+```
+
+### new Server.CoapBroker(callback)
+
+* ```options``` <Object> Options containing response events.
+ * ondata <Function> Callback function that receives client data
+ * onstart <function> Callback function that notifies the success of creating the Websocket connection.
+
+## Class: Server.WebsocketToCoapProxy
+
+To start a Websocket-to-CoAP protocol translation server:
+
+```
+var Server = require('wotcity.io').Server;
+Server.WebsocketToCoapProxy.start();
+```
+
+### new Server.WebsocketToCoapProxy(callback)
+
+* ```options``` <Object> Options containing response events.
+ * ondata <Function> Callback function that receives client data
+ * onstart <function> Callback function that notifies the success of creating the Websocket connection.
+
+## Class: Server.CoapToWebsocketProxy
+
+To start a CoAP-to-Websocket protocol translation server:
+
+```
+var Server = require('wotcity.io').Server;
+Server.CoapToWebsocketProxy.start();
+```
+
+### new Server.CoapToWebsocketProxy(callback)
+
+* ```options``` <Object> Options containing response events.
+ * ondata <Function> Callback function that receives client data
+ * onstart <function> Callback function that notifies the success of creating the Websocket connection.
