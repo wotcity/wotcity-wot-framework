@@ -16,7 +16,7 @@ The Web of Things framework by WoT.City open source project. It contains various
 
 There is a SDK that you can also use ```wotcity.io``` as the SDK.
 
-* [Install and Use WoT.City SDK](docs/SDK.md)
+* [Install and Use WoT.City SDK](https://github.com/wotcity/wotcity-wot-framework/wiki/SDK)
 
 ## Discussion
 
