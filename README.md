@@ -5,6 +5,13 @@
 
 The Web of Things framework by WoT.City open source project. It contains various WoT servers, including websocket broker WoT server, CoAP WoT server and etc. 
 
+![Figure 1-4: WebSocket Broker Server](https://wotcity.com/blog/content/images/2015/07/ws-broker.png)
+
+The IoT device can send sensory data to the broker server and the broker server can consequently forward the data to multiple clients. The broker server architecture is especially designed for IoT constrained devices.
+
+* The constrained device has a Websocket/CoAP client which is sending data streams to the web
+* A WebSocket/CoAP broker server can be deployed in the cloud as an IoT gateway
+
 ## Install and Usage
 
 * [Install and Run Websocket Broker Servers](docs/WebSocketBroker.md)
