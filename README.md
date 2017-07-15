@@ -18,6 +18,10 @@ There is a SDK that you can also use ```wotcity.io``` as the SDK.
 
 * [Install and Use WoT.City SDK](https://github.com/wotcity/wotcity-wot-framework/wiki/Use-the-wotcity.io-SDK)
 
+## Projects
+
+* [Devify Desktop](https://github.com/flowchain/devify-desktop) is an boilerplate to build IoT server desktop applications that can install on MacOS, Windows and Linux.
+
 ## Discussion
 
 There are various ways to get involved with WoT.City Web of Things Framework. We're looking for help identifying bugs, writing documentation and contributing codes.
