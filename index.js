@@ -1,7 +1,7 @@
 /**
  *
  * WoT.City Open Source Project
- * 
+ *
  * Copyright 2015 Jollen
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -10,10 +10,10 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35,11 +35,6 @@ var Framework = require('./lib/framework')
 var Component = require('./runtime/component')
   , Runtime = require('./runtime/runtime');
 
-var WebsocketBroker = require('./servers/websocket-broker')
-  , CoapBroker = require('./servers/coap-broker')
-  , WebsocketToCoapProxy = require('./servers/websocket-proxy-coap')
-  , CoapToWebsocketProxy = require('./servers/coap-proxy-websocket');
-
 module.exports = {
 	Framework: Framework,
 
@@ -54,10 +49,10 @@ module.exports = {
  	Component: Component,
  	Runtime: Runtime,
 
-  Server: {
-	  WebsocketBroker: WebsocketBroker,
-	  CoapBroker: CoapBroker,
-	  WebsocketToCoapProxy: WebsocketToCoapProxy,
-	  CoapToWebsocketProxy: CoapToWebsocketProxy
-  }
+    Server: {
+        WebsocketBroker: require('./servers/websocket-broker'),
+        CoapBroker: require('./servers/coap-broker'),
+        WebsocketToCoapProxy: require('./servers/websocket-proxy-coap'),
+        CoapToWebsocketProxy: require('./servers/coap-proxy-websocket')
+    }
 };
