@@ -48,13 +48,15 @@ var merge = require('utils-merge');
  */
 var coapHandlers = {
    "/object/([A-Za-z0-9-]+)/send": RequestHandlers.proxyingWebSocket,
+   "/object/([A-Za-z0-9-]+)/viewer": RequestHandlers.viewer,
+   "/object/([A-Za-z0-9-]+)/status": RequestHandlers.status
 };
 
 /*
  * Prototype and Class
  */
 var Server = function () {
-  this.server = null;
+  this.server = null;  
   this.callbacks = {
     ondata: function() { return 0; },
     onnewthing: function() { return 0; },
@@ -63,12 +65,12 @@ var Server = function () {
 };
 
 /**
- * Event callback factory
+ * Event Callback System
  */
 Server.prototype.onNewThing = function(thing) {
   // Call framework APIs
   this.registerThing(thing);
-  this.callbacks['onnewthing'](thing);
+  this.callbacks['onnewthing'](thing);  
 };
 
 /**
@@ -133,13 +135,13 @@ Server.prototype.start = function(options) {
   server.on('data', this.onData.bind(this));
   server.on('start', this.onStart.bind(this));
 
-  server.start(router.route, coapHandlers);
+  server.startAsProxy(router.route, coapHandlers);
 
-  this.server = server;  
+  this.server = server;
 };
 
 /**
- * Shutdown the Websocket server.
+ * Shutdown the CoAP server.
  *
  * @param cb {Function} The complete callback
  * @return {}
