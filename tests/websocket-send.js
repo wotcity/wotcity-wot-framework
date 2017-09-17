@@ -37,7 +37,7 @@ client.on('connect', function(connection) {
     sendNumber();
 });
 
-client.connect('ws://localhost:8000/object/5550937980d51931b3000009/send', '');
+client.connect('ws://192.168.1.101:8000/object/5550937980d51931b3000009/send', '');
 
 
 
