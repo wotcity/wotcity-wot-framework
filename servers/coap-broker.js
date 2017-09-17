@@ -109,6 +109,10 @@ function createServer(options) {
 Server.prototype.start = function(options) {
   var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
   var host = process.env.HOST ? String(process.env.HOST) : 'localhost';
+  var endpoints = [];
+
+  if (typeof process.env.ENDPOINT === 'string')
+    endpoints.push(process.env.ENDPOINT);
 
   if (options && options.ondata && typeof options.ondata === 'function') 
     this.callbacks['ondata'] = options.ondata;
@@ -121,7 +125,8 @@ Server.prototype.start = function(options) {
 
   var server = new CoapBroker({
     port: port,
-    host: host
+    host: host,
+    endpoints: endpoints
   });
   var router = new Router();
 
