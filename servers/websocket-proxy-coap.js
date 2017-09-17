@@ -47,7 +47,9 @@ var merge = require('utils-merge');
  * Websocket URL Router
  */
 var wsHandlers = {
-   "/object/([A-Za-z0-9-]+)/send": RequestHandlers.proxyingCoap
+   "/object/([A-Za-z0-9-]+)/send": RequestHandlers.sendProxyingCoap,
+   "/object/([A-Za-z0-9-]+)/viewer": RequestHandlers.viewer,
+   "/object/([A-Za-z0-9-]+)/status": RequestHandlers.status   
 };
 
 /*

@@ -47,7 +47,7 @@ var merge = require('utils-merge');
  * CoAP URL Router
  */
 var coapHandlers = {
-   "/object/([A-Za-z0-9-]+)/send": RequestHandlers.proxyingWebSocket,
+   "/object/([A-Za-z0-9-]+)/send": RequestHandlers.sendProxyingWebSocket,
    "/object/([A-Za-z0-9-]+)/viewer": RequestHandlers.viewer,
    "/object/([A-Za-z0-9-]+)/status": RequestHandlers.status
 };
