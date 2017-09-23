@@ -109,7 +109,7 @@ function createServer(options) {
 Server.prototype.start = function(options) {
   var port = process.env.PORT ? parseInt(process.env.PORT) : 8000;
   var host = process.env.HOST ? process.env.HOST : 'localhost';
-  var endpoints = [];
+  var endpoints = options.endpoints || [];
 
   if (typeof process.env.ENDPOINT === 'string')
     endpoints.push(process.env.ENDPOINT);
